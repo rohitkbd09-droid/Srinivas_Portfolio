@@ -1,29 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>G Srinivas | Portfolio</title>
 
     <!-- Google Font -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <style>
-
-        /* =====================================
-           RESET
-        ===================================== */
 
         * {
             margin: 0;
@@ -71,10 +63,7 @@
             position: relative;
         }
 
-
-        /* =====================================
-           BACKGROUND
-        ===================================== */
+        /* BACKGROUND */
 
         body::before {
             content: "";
@@ -104,10 +93,7 @@
             z-index: -5;
         }
 
-
-        /* =====================================
-           NAVBAR
-        ===================================== */
+        /* NAVBAR */
 
         .navbar {
             position: fixed;
@@ -129,10 +115,8 @@
         }
 
         .navbar.scrolled {
-            box-shadow:
-                0 15px 60px rgba(0, 0, 0, 0.55);
-            border-color:
-                rgba(255, 106, 0, 0.2);
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.55);
+            border-color: rgba(255, 106, 0, 0.2);
         }
 
         .logo {
@@ -195,9 +179,7 @@
         .hire-btn:hover {
             background: var(--orange-light);
             transform: translateY(-3px);
-            box-shadow:
-                0 10px 30px
-                rgba(255, 106, 0, 0.25);
+            box-shadow: 0 10px 30px rgba(255, 106, 0, 0.25);
         }
 
         .menu-btn {
@@ -209,10 +191,7 @@
             cursor: pointer;
         }
 
-
-        /* =====================================
-           HERO
-        ===================================== */
+        /* HERO */
 
         .hero {
             min-height: 100vh;
@@ -233,8 +212,7 @@
         }
 
         .hero-content {
-            animation:
-                heroLeft 1s ease forwards;
+            animation: heroLeft 1s ease forwards;
         }
 
         @keyframes heroLeft {
@@ -256,8 +234,7 @@
         }
 
         .hero h1 {
-            font-size:
-                clamp(45px, 5vw, 75px);
+            font-size: clamp(45px, 5vw, 75px);
             line-height: 1.1;
             font-weight: 700;
             margin-bottom: 15px;
@@ -265,8 +242,7 @@
 
         .hero-role {
             color: var(--orange);
-            font-size:
-                clamp(25px, 3vw, 42px);
+            font-size: clamp(25px, 3vw, 42px);
             line-height: 1.25;
             font-weight: 700;
             min-height: 55px;
@@ -281,10 +257,7 @@
             margin-bottom: 28px;
         }
 
-
-        /* =====================================
-           SOCIALS
-        ===================================== */
+        /* SOCIALS */
 
         .socials {
             display: flex;
@@ -310,18 +283,11 @@
             color: white;
             background: var(--orange);
             border-color: var(--orange);
-            transform:
-                translateY(-6px)
-                rotate(5deg);
-            box-shadow:
-                0 10px 25px
-                rgba(255, 106, 0, 0.2);
+            transform: translateY(-6px) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(255, 106, 0, 0.2);
         }
 
-
-        /* =====================================
-           BUTTONS
-        ===================================== */
+        /* BUTTONS */
 
         .hero-buttons {
             display: flex;
@@ -351,9 +317,7 @@
             background: transparent;
             color: var(--orange);
             transform: translateY(-4px);
-            box-shadow:
-                0 15px 30px
-                rgba(255, 106, 0, 0.12);
+            box-shadow: 0 15px 30px rgba(255, 106, 0, 0.12);
         }
 
         .btn-outline {
@@ -368,10 +332,7 @@
             transform: translateY(-4px);
         }
 
-
-        /* =====================================
-           STATS
-        ===================================== */
+        /* STATS */
 
         .stats {
             display: flex;
@@ -381,8 +342,7 @@
             background: #111111;
             border: 1px solid #202020;
             border-radius: 5px;
-            animation:
-                statsAppear 1.5s ease forwards;
+            animation: statsAppear 1.5s ease forwards;
         }
 
         @keyframes statsAppear {
@@ -422,10 +382,7 @@
             font-size: 11px;
         }
 
-
-        /* =====================================
-           HERO IMAGE
-        ===================================== */
+        /* HERO IMAGE */
 
         .hero-image-area {
             position: relative;
@@ -433,8 +390,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation:
-                heroRight 1.2s ease forwards;
+            animation: heroRight 1.2s ease forwards;
         }
 
         @keyframes heroRight {
@@ -454,21 +410,13 @@
             width: 510px;
             height: 510px;
             border-radius: 50%;
-            background:
-                radial-gradient(
-                    circle,
-                    #282828 0%,
-                    #171717 58%,
-                    #0e0e0e 100%
-                );
-            box-shadow:
-                0 0 90px
-                rgba(255, 106, 0, 0.04);
-            animation:
-                floatingCircle 6s ease-in-out infinite;
+            background: radial-gradient(circle, #282828 0%, #171717 58%, #0e0e0e 100%);
+            box-shadow: 0 0 90px rgba(255, 106, 0, 0.04);
+            animation: floatingCircle 6s ease-in-out infinite;
         }
 
         @keyframes floatingCircle {
+
             0%,
             100% {
                 transform: translateY(0);
@@ -484,10 +432,8 @@
             position: absolute;
             inset: -8px;
             border-radius: 50%;
-            border: 1px solid
-                rgba(255, 106, 0, 0.35);
-            animation:
-                ringRotate 15s linear infinite;
+            border: 1px solid rgba(255, 106, 0, 0.35);
+            animation: ringRotate 15s linear infinite;
         }
 
         @keyframes ringRotate {
@@ -500,8 +446,6 @@
             }
         }
 
-        /* ONE AND ONLY PROFILE PHOTO */
-
         .profile-image {
             position: relative;
             z-index: 5;
@@ -509,30 +453,25 @@
             height: 600px;
             object-fit: cover;
             object-position: center top;
-            filter:
-                grayscale(100%)
-                contrast(1.08)
-                brightness(0.95);
+            filter: grayscale(100%) contrast(1.08) brightness(0.95);
 
-            -webkit-mask-image:
-                linear-gradient(
-                    to bottom,
-                    black 72%,
-                    transparent 100%
-                );
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                black 72%,
+                transparent 100%
+            );
 
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black 72%,
-                    transparent 100%
-                );
+            mask-image: linear-gradient(
+                to bottom,
+                black 72%,
+                transparent 100%
+            );
 
-            animation:
-                personFloat 5s ease-in-out infinite;
+            animation: personFloat 5s ease-in-out infinite;
         }
 
         @keyframes personFloat {
+
             0%,
             100% {
                 transform: translateY(0);
@@ -554,16 +493,12 @@
             opacity: 0.12;
         }
 
-
-        /* =====================================
-           SECTION TITLE
-        ===================================== */
+        /* SECTION TITLE */
 
         .section-title {
             text-align: center;
             max-width: 800px;
-            margin:
-                0 auto 60px;
+            margin: 0 auto 60px;
         }
 
         .section-title small {
@@ -589,10 +524,7 @@
             margin-top: 12px;
         }
 
-
-        /* =====================================
-           ABOUT
-        ===================================== */
+        /* ABOUT */
 
         .about {
             background: #0d0d0d;
@@ -617,20 +549,15 @@
 
         .about-content > p {
             max-width: 800px;
-            margin:
-                0 auto 14px;
+            margin: 0 auto 14px;
             color: #858585;
             font-size: 14px;
             line-height: 1.9;
         }
 
-
-        /* PERSONAL INFO */
-
         .personal-info {
             display: grid;
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             margin-top: 35px;
             text-align: left;
@@ -646,8 +573,7 @@
 
         .info:hover {
             transform: translateY(-5px);
-            border-color:
-                rgba(255, 106, 0, 0.3);
+            border-color: rgba(255, 106, 0, 0.3);
         }
 
         .info small {
@@ -663,17 +589,13 @@
             word-break: break-word;
         }
 
-
-        /* =====================================
-           SKILLS
-        ===================================== */
+        /* SKILLS */
 
         .skills-grid {
             max-width: 1100px;
             margin: auto;
             display: grid;
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -700,11 +622,8 @@
 
         .skill-card:hover {
             transform: translateY(-9px);
-            border-color:
-                rgba(255, 106, 0, 0.35);
-            box-shadow:
-                0 20px 50px
-                rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 106, 0, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
         .skill-card:hover::before {
@@ -717,8 +636,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
-                rgba(255, 106, 0, 0.1);
+            background: rgba(255, 106, 0, 0.1);
             color: var(--orange);
             border-radius: 8px;
             font-size: 23px;
@@ -737,10 +655,7 @@
             line-height: 1.8;
         }
 
-
-        /* =====================================
-           PROJECTS
-        ===================================== */
+        /* PROJECTS */
 
         .projects {
             background: #0d0d0d;
@@ -751,8 +666,7 @@
             max-width: 1100px;
             margin: auto;
             display: grid;
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -766,11 +680,8 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-            border-color:
-                rgba(255, 106, 0, 0.4);
-            box-shadow:
-                0 25px 60px
-                rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 106, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
         }
 
         .project-top {
@@ -778,14 +689,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
-                linear-gradient(
-                    135deg,
-                    #171717,
-                    #262626
-                );
-            border-bottom:
-                1px solid #252525;
+            background: linear-gradient(135deg, #171717, #262626);
+            border-bottom: 1px solid #252525;
         }
 
         .project-number {
@@ -831,10 +736,7 @@
             font-size: 9px;
         }
 
-
-        /* =====================================
-           EDUCATION
-        ===================================== */
+        /* EDUCATION */
 
         .timeline {
             max-width: 850px;
@@ -849,11 +751,7 @@
             bottom: 0;
             left: 18px;
             width: 1px;
-            background:
-                linear-gradient(
-                    var(--orange),
-                    transparent
-                );
+            background: linear-gradient(var(--orange), transparent);
         }
 
         .timeline-item {
@@ -871,9 +769,7 @@
             border-radius: 50%;
             background: #101010;
             border: 4px solid var(--orange);
-            box-shadow:
-                0 0 20px
-                rgba(255, 106, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
         }
 
         .timeline-card {
@@ -886,8 +782,7 @@
 
         .timeline-card:hover {
             transform: translateX(8px);
-            border-color:
-                rgba(255, 106, 0, 0.35);
+            border-color: rgba(255, 106, 0, 0.35);
         }
 
         .timeline-card h3 {
@@ -906,10 +801,7 @@
             line-height: 1.7;
         }
 
-
-        /* =====================================
-           ACHIEVEMENTS
-        ===================================== */
+        /* ACHIEVEMENTS */
 
         .achievement-section {
             background: #0d0d0d;
@@ -935,8 +827,7 @@
 
         .achievement-card:hover {
             transform: translateY(-7px);
-            border-color:
-                rgba(255, 106, 0, 0.35);
+            border-color: rgba(255, 106, 0, 0.35);
         }
 
         .achievement-card .big-icon {
@@ -956,10 +847,7 @@
             line-height: 1.8;
         }
 
-
-        /* =====================================
-           CONTACT
-        ===================================== */
+        /* CONTACT */
 
         .contact {
             background: #080808;
@@ -969,8 +857,7 @@
             max-width: 1100px;
             margin: auto;
             display: grid;
-            grid-template-columns:
-                .85fr 1.15fr;
+            grid-template-columns: .85fr 1.15fr;
             gap: 25px;
         }
 
@@ -1016,8 +903,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
-                rgba(255, 106, 0, 0.1);
+            background: rgba(255, 106, 0, 0.1);
             color: var(--orange);
             border-radius: 6px;
             font-size: 11px;
@@ -1038,15 +924,11 @@
             word-break: break-word;
         }
 
-
-        /* =====================================
-           FORM
-        ===================================== */
+        /* FORM */
 
         .form-row {
             display: grid;
-            grid-template-columns:
-                1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
 
@@ -1077,9 +959,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: var(--orange);
-            box-shadow:
-                0 0 0 3px
-                rgba(255, 106, 0, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.05);
         }
 
         .form-group textarea {
@@ -1087,10 +967,32 @@
             resize: vertical;
         }
 
+        /* FORM MESSAGE */
 
-        /* =====================================
-           FOOTER
-        ===================================== */
+        #form-status {
+            display: none;
+            margin-top: 18px;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        #form-status.success {
+            display: block;
+            background: rgba(0, 180, 80, 0.1);
+            border: 1px solid rgba(0, 180, 80, 0.3);
+            color: #6cffaa;
+        }
+
+        #form-status.error {
+            display: block;
+            background: rgba(255, 60, 60, 0.1);
+            border: 1px solid rgba(255, 60, 60, 0.3);
+            color: #ff8585;
+        }
+
+        /* FOOTER */
 
         footer {
             padding: 35px 20px;
@@ -1105,17 +1007,12 @@
             color: var(--orange);
         }
 
-
-        /* =====================================
-           SCROLL REVEAL
-        ===================================== */
+        /* SCROLL REVEAL */
 
         .reveal {
             opacity: 0;
             transform: translateY(40px);
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
+            transition: opacity .8s ease, transform .8s ease;
         }
 
         .reveal.active {
@@ -1123,10 +1020,7 @@
             transform: translateY(0);
         }
 
-
-        /* =====================================
-           BACK TO TOP
-        ===================================== */
+        /* TOP BUTTON */
 
         #topBtn {
             position: fixed;
@@ -1142,19 +1036,15 @@
             cursor: pointer;
             display: none;
             z-index: 999;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         #topBtn:hover {
             background: var(--orange-light);
-            transform:
-                translateY(-5px);
+            transform: translateY(-5px);
         }
 
-
-        /* =====================================
-           RESPONSIVE
-        ===================================== */
+        /* RESPONSIVE */
 
         @media(max-width:1050px) {
 
@@ -1208,8 +1098,7 @@
 
             .skills-grid,
             .projects-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .contact-grid {
@@ -1217,18 +1106,15 @@
             }
         }
 
-
         @media(max-width:700px) {
 
             section {
-                padding:
-                    80px 5%;
+                padding: 80px 5%;
             }
 
             .navbar {
                 width: 92%;
-                padding:
-                    15px 20px;
+                padding: 15px 20px;
             }
 
             .hero {
@@ -1264,8 +1150,7 @@
             }
 
             .stat {
-                padding:
-                    0 12px;
+                padding: 0 12px;
             }
 
             .stat h3 {
@@ -1303,7 +1188,6 @@
             }
         }
 
-
         @media(max-width:430px) {
 
             .image-circle {
@@ -1325,8 +1209,7 @@
             }
 
             .stat {
-                padding:
-                    0 8px;
+                padding: 0 8px;
             }
 
             .stat h3 {
@@ -1341,88 +1224,48 @@
     </style>
 </head>
 
-
 <body>
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================= -->
+    <!-- NAVIGATION -->
 
     <nav class="navbar" id="navbar">
 
-        <a href="#home"
-           class="logo">
+        <a href="#home" class="logo">
             SR<span>.</span>
         </a>
 
         <button class="menu-btn"
-                id="menuBtn"
-                type="button"
-                aria-label="Open navigation menu">
+            id="menuBtn"
+            type="button"
+            aria-label="Open navigation menu">
             ☰
         </button>
 
-        <ul class="nav-links"
-            id="navLinks">
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
 
             <li>
-                <a href="#home"
-                   class="active">
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="#services">
-                    Services
-                </a>
-            </li>
-
-            <li>
-                <a href="#about">
-                    About Me
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    Portfolio
-                </a>
-            </li>
-
-            <li>
-                <a href="#education">
-                    Education
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact"
-                   class="hire-btn">
+                <a href="#contact" class="hire-btn">
                     Hire Me
                 </a>
             </li>
 
         </ul>
+
     </nav>
 
 
-    <!-- =========================================
-         HERO
-    ========================================= -->
+    <!-- HERO -->
 
-    <section class="hero"
-             id="home">
+    <section class="hero" id="home">
 
         <div class="hero-container">
-
-            <!-- LEFT SIDE -->
 
             <div class="hero-content">
 
@@ -1434,8 +1277,7 @@
                     G Srinivas
                 </h1>
 
-                <div class="hero-role"
-                     id="typing">
+                <div class="hero-role" id="typing">
                     Computer Science Student
                 </div>
 
@@ -1447,105 +1289,70 @@
                     converting ideas into practical applications.
                 </p>
 
-
-                <!-- SOCIAL LINKS -->
-
                 <div class="socials">
 
                     <a href="https://github.com/rohitkbd09-droid"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       title="GitHub">
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="GitHub">
                         GH
                     </a>
 
                     <a href="https://www.linkedin.com/in/srinivasreddy-gaalla-338530384"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       title="LinkedIn">
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="LinkedIn">
                         IN
                     </a>
 
                     <a href="mailto:srinivasreddygaalla0505@gmail.com"
-                       title="Email">
+                        title="Email">
                         @
                     </a>
 
                     <a href="tel:+918639605675"
-                       title="Phone">
+                        title="Phone">
                         ☎
                     </a>
 
                 </div>
 
-
-                <!-- BUTTONS -->
-
                 <div class="hero-buttons">
 
                     <a href="#contact"
-                       class="btn btn-orange">
+                        class="btn btn-orange">
                         Hire Me
                     </a>
 
                     <a href="resume.pdf"
-                       download
-                       class="btn btn-outline">
+                        download
+                        class="btn btn-outline">
                         Download CV
                     </a>
 
                 </div>
 
-
-                <!-- STATS -->
-
                 <div class="stats">
 
                     <div class="stat">
-
-                        <h3>
-                            01+
-                        </h3>
-
-                        <p>
-                            Major Project
-                        </p>
-
+                        <h3>01+</h3>
+                        <p>Major Project</p>
                     </div>
 
-
                     <div class="stat">
-
-                        <h3>
-                            07+
-                        </h3>
-
-                        <p>
-                            Technical Skills
-                        </p>
-
+                        <h3>07+</h3>
+                        <p>Technical Skills</p>
                     </div>
 
-
                     <div class="stat">
-
-                        <h3>
-                            03
-                        </h3>
-
-                        <p>
-                            Languages
-                        </p>
-
+                        <h3>03</h3>
+                        <p>Languages</p>
                     </div>
 
                 </div>
 
             </div>
 
-
-            <!-- RIGHT SIDE -->
-            <!-- ONLY PHOTO ON ENTIRE WEBSITE -->
 
             <div class="hero-image-area">
 
@@ -1554,8 +1361,8 @@
                 <div class="image-circle"></div>
 
                 <img src="profile.png"
-                     alt="G Srinivas"
-                     class="profile-image">
+                    alt="G Srinivas"
+                    class="profile-image">
 
             </div>
 
@@ -1564,18 +1371,13 @@
     </section>
 
 
-    <!-- =========================================
-         ABOUT ME
-    ========================================= -->
+    <!-- ABOUT -->
 
-    <section class="about"
-             id="about">
+    <section class="about" id="about">
 
         <div class="section-title reveal">
 
-            <small>
-                ABOUT ME
-            </small>
+            <small>ABOUT ME</small>
 
             <h2>
                 Get to know
@@ -1588,7 +1390,6 @@
             </p>
 
         </div>
-
 
         <div class="about-content reveal">
 
@@ -1615,86 +1416,40 @@
                 industry.
             </p>
 
-
             <div class="personal-info">
 
                 <div class="info">
-
-                    <small>
-                        Name
-                    </small>
-
-                    <strong>
-                        G Srinivas
-                    </strong>
-
+                    <small>Name</small>
+                    <strong>G Srinivas</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <small>
-                        Branch
-                    </small>
-
-                    <strong>
-                        Computer Science Engineering
-                    </strong>
-
+                    <small>Branch</small>
+                    <strong>Computer Science Engineering</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <small>
-                        College
-                    </small>
-
-                    <strong>
-                        JNTU Wanaparthy
-                    </strong>
-
+                    <small>College</small>
+                    <strong>JNTU Wanaparthy</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <small>
-                        Roll No
-                    </small>
-
-                    <strong>
-                        24XW5A0505
-                    </strong>
-
+                    <small>Roll No</small>
+                    <strong>24XW5A0505</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <small>
-                        Email
-                    </small>
-
+                    <small>Email</small>
                     <strong>
                         <a href="mailto:srinivasreddygaalla0505@gmail.com">
                             srinivasreddygaalla0505@gmail.com
                         </a>
                     </strong>
-
                 </div>
 
-
                 <div class="info">
-
-                    <small>
-                        Phone
-                    </small>
-
-                    <strong>
-                        +91 8639605675
-                    </strong>
-
+                    <small>Phone</small>
+                    <strong>+91 8639605675</strong>
                 </div>
 
             </div>
@@ -1704,17 +1459,13 @@
     </section>
 
 
-    <!-- =========================================
-         SKILLS
-    ========================================= -->
+    <!-- SKILLS -->
 
     <section id="services">
 
         <div class="section-title reveal">
 
-            <small>
-                WHAT I DO
-            </small>
+            <small>WHAT I DO</small>
 
             <h2>
                 My
@@ -1728,115 +1479,61 @@
 
         </div>
 
-
         <div class="skills-grid">
 
             <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    &lt;/&gt;
-                </div>
-
-                <h3>
-                    HTML & CSS
-                </h3>
-
+                <div class="skill-icon">&lt;/&gt;</div>
+                <h3>HTML & CSS</h3>
                 <p>
                     Creating responsive and attractive
                     web interfaces using HTML and CSS.
                 </p>
-
             </div>
 
-
             <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    JS
-                </div>
-
-                <h3>
-                    JavaScript
-                </h3>
-
+                <div class="skill-icon">JS</div>
+                <h3>JavaScript</h3>
                 <p>
                     Adding interactive features,
                     animations and dynamic functionality
                     to web applications.
                 </p>
-
             </div>
 
-
             <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    PY
-                </div>
-
-                <h3>
-                    Python
-                </h3>
-
+                <div class="skill-icon">PY</div>
+                <h3>Python</h3>
                 <p>
                     Developing programs and improving
                     problem-solving skills using Python.
                 </p>
-
             </div>
 
-
             <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    JA
-                </div>
-
-                <h3>
-                    Java
-                </h3>
-
+                <div class="skill-icon">JA</div>
+                <h3>Java</h3>
                 <p>
                     Understanding object-oriented
                     programming and Java development.
                 </p>
-
             </div>
 
-
             <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    SQL
-                </div>
-
-                <h3>
-                    MySQL & SQL
-                </h3>
-
+                <div class="skill-icon">SQL</div>
+                <h3>MySQL & SQL</h3>
                 <p>
                     Working with databases, SQL queries,
                     data management and database concepts.
                 </p>
-
             </div>
 
-
             <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    DB
-                </div>
-
-                <h3>
-                    MongoDB
-                </h3>
-
+                <div class="skill-icon">DB</div>
+                <h3>MongoDB</h3>
                 <p>
                     Learning NoSQL database concepts and
                     document-oriented data management.
                 </p>
-
             </div>
 
         </div>
@@ -1844,18 +1541,13 @@
     </section>
 
 
-    <!-- =========================================
-         PROJECTS
-    ========================================= -->
+    <!-- PROJECTS -->
 
-    <section class="projects"
-             id="projects">
+    <section class="projects" id="projects">
 
         <div class="section-title reveal">
 
-            <small>
-                MY WORK
-            </small>
+            <small>MY WORK</small>
 
             <h2>
                 Featured
@@ -1869,28 +1561,17 @@
 
         </div>
 
-
         <div class="projects-grid">
-
-
-            <!-- PROJECT 1 -->
 
             <div class="project-card reveal">
 
                 <div class="project-top">
-
-                    <div class="project-number">
-                        01
-                    </div>
-
+                    <div class="project-number">01</div>
                 </div>
-
 
                 <div class="project-content">
 
-                    <small>
-                        WEB APPLICATION
-                    </small>
+                    <small>WEB APPLICATION</small>
 
                     <h3>
                         College Event Management System
@@ -1903,29 +1584,12 @@
                         activities.
                     </p>
 
-
                     <div class="tags">
-
-                        <span class="tag">
-                            HTML
-                        </span>
-
-                        <span class="tag">
-                            CSS
-                        </span>
-
-                        <span class="tag">
-                            JavaScript
-                        </span>
-
-                        <span class="tag">
-                            Node.js
-                        </span>
-
-                        <span class="tag">
-                            MySQL
-                        </span>
-
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MySQL</span>
                     </div>
 
                 </div>
@@ -1933,24 +1597,15 @@
             </div>
 
 
-            <!-- PROJECT 2 -->
-
             <div class="project-card reveal">
 
                 <div class="project-top">
-
-                    <div class="project-number">
-                        02
-                    </div>
-
+                    <div class="project-number">02</div>
                 </div>
-
 
                 <div class="project-content">
 
-                    <small>
-                        AI / ML
-                    </small>
+                    <small>AI / ML</small>
 
                     <h3>
                         AI-Based Drug Discovery
@@ -1963,25 +1618,11 @@
                         prediction and virtual screening.
                     </p>
 
-
                     <div class="tags">
-
-                        <span class="tag">
-                            Python
-                        </span>
-
-                        <span class="tag">
-                            AI
-                        </span>
-
-                        <span class="tag">
-                            ML
-                        </span>
-
-                        <span class="tag">
-                            Deep Learning
-                        </span>
-
+                        <span class="tag">Python</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">Deep Learning</span>
                     </div>
 
                 </div>
@@ -1989,24 +1630,15 @@
             </div>
 
 
-            <!-- PROJECT 3 -->
-
             <div class="project-card reveal">
 
                 <div class="project-top">
-
-                    <div class="project-number">
-                        03
-                    </div>
-
+                    <div class="project-number">03</div>
                 </div>
-
 
                 <div class="project-content">
 
-                    <small>
-                        PERSONAL WEBSITE
-                    </small>
+                    <small>PERSONAL WEBSITE</small>
 
                     <h3>
                         Personal Portfolio
@@ -2019,25 +1651,11 @@
                         contact information.
                     </p>
 
-
                     <div class="tags">
-
-                        <span class="tag">
-                            HTML
-                        </span>
-
-                        <span class="tag">
-                            CSS
-                        </span>
-
-                        <span class="tag">
-                            JavaScript
-                        </span>
-
-                        <span class="tag">
-                            Netlify
-                        </span>
-
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Netlify</span>
                     </div>
 
                 </div>
@@ -2049,17 +1667,13 @@
     </section>
 
 
-    <!-- =========================================
-         EDUCATION
-    ========================================= -->
+    <!-- EDUCATION -->
 
     <section id="education">
 
         <div class="section-title reveal">
 
-            <small>
-                EDUCATION
-            </small>
+            <small>EDUCATION</small>
 
             <h2>
                 My
@@ -2072,9 +1686,7 @@
 
         </div>
 
-
         <div class="timeline">
-
 
             <div class="timeline-item reveal">
 
@@ -2098,16 +1710,13 @@
 
             </div>
 
-
             <div class="timeline-item reveal">
 
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-card">
 
-                    <h3>
-                        Diploma
-                    </h3>
+                    <h3>Diploma</h3>
 
                     <div class="year">
                         2019 — 2022
@@ -2121,16 +1730,13 @@
 
             </div>
 
-
             <div class="timeline-item reveal">
 
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-card">
 
-                    <h3>
-                        SSC
-                    </h3>
+                    <h3>SSC</h3>
 
                     <div class="year">
                         2015 — 2019
@@ -2149,17 +1755,13 @@
     </section>
 
 
-    <!-- =========================================
-         ACHIEVEMENTS
-    ========================================= -->
+    <!-- ACHIEVEMENTS -->
 
     <section class="achievement-section">
 
         <div class="section-title reveal">
 
-            <small>
-                ACHIEVEMENTS & INTERESTS
-            </small>
+            <small>ACHIEVEMENTS & INTERESTS</small>
 
             <h2>
                 Beyond
@@ -2168,15 +1770,11 @@
 
         </div>
 
-
         <div class="achievement-box">
-
 
             <div class="achievement-card reveal">
 
-                <div class="big-icon">
-                    🏆
-                </div>
+                <div class="big-icon">🏆</div>
 
                 <h3>
                     Sports Achievement
@@ -2189,16 +1787,11 @@
 
             </div>
 
-
             <div class="achievement-card reveal">
 
-                <div class="big-icon">
-                    🌎
-                </div>
+                <div class="big-icon">🌎</div>
 
-                <h3>
-                    Languages
-                </h3>
+                <h3>Languages</h3>
 
                 <p>
                     Telugu, Hindi and English.
@@ -2206,16 +1799,11 @@
 
             </div>
 
-
             <div class="achievement-card reveal">
 
-                <div class="big-icon">
-                    🏏
-                </div>
+                <div class="big-icon">🏏</div>
 
-                <h3>
-                    Hobbies
-                </h3>
+                <h3>Hobbies</h3>
 
                 <p>
                     Kabaddi and Cricket.
@@ -2223,16 +1811,11 @@
 
             </div>
 
-
             <div class="achievement-card reveal">
 
-                <div class="big-icon">
-                    💻
-                </div>
+                <div class="big-icon">💻</div>
 
-                <h3>
-                    Career Interest
-                </h3>
+                <h3>Career Interest</h3>
 
                 <p>
                     Interested in software development,
@@ -2247,18 +1830,13 @@
     </section>
 
 
-    <!-- =========================================
-         CONTACT
-    ========================================= -->
+    <!-- CONTACT -->
 
-    <section class="contact"
-             id="contact">
+    <section class="contact" id="contact">
 
         <div class="section-title reveal">
 
-            <small>
-                CONTACT
-            </small>
+            <small>CONTACT</small>
 
             <h2>
                 Let's
@@ -2272,13 +1850,9 @@
 
         </div>
 
-
         <div class="contact-grid">
 
-
-            <!-- =================================
-                 CONTACT DETAILS
-            ================================== -->
+            <!-- CONTACT INFORMATION -->
 
             <div class="contact-info reveal">
 
@@ -2293,94 +1867,74 @@
                     phone, GitHub or LinkedIn.
                 </p>
 
-
                 <a href="mailto:srinivasreddygaalla0505@gmail.com"
-                   class="contact-item">
+                    class="contact-item">
 
                     <div class="contact-icon">
                         @
                     </div>
 
                     <div>
-
-                        <small>
-                            Email
-                        </small>
+                        <small>Email</small>
 
                         <strong>
                             srinivasreddygaalla0505@gmail.com
                         </strong>
-
                     </div>
 
                 </a>
 
-
                 <a href="tel:+918639605675"
-                   class="contact-item">
+                    class="contact-item">
 
                     <div class="contact-icon">
                         ☎
                     </div>
 
                     <div>
-
-                        <small>
-                            Phone
-                        </small>
+                        <small>Phone</small>
 
                         <strong>
                             +91 8639605675
                         </strong>
-
                     </div>
 
                 </a>
 
-
                 <a href="https://github.com/rohitkbd09-droid"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="contact-item">
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-item">
 
                     <div class="contact-icon">
                         GH
                     </div>
 
                     <div>
-
-                        <small>
-                            GitHub
-                        </small>
+                        <small>GitHub</small>
 
                         <strong>
                             github.com/rohitkbd09-droid
                         </strong>
-
                     </div>
 
                 </a>
 
-
                 <a href="https://www.linkedin.com/in/srinivasreddy-gaalla-338530384"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="contact-item">
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-item">
 
                     <div class="contact-icon">
                         IN
                     </div>
 
                     <div>
-
-                        <small>
-                            LinkedIn
-                        </small>
+                        <small>LinkedIn</small>
 
                         <strong>
                             Srinivas Reddy Gaalla
                         </strong>
-
                     </div>
 
                 </a>
@@ -2388,22 +1942,24 @@
             </div>
 
 
-            <!-- =================================
-                 NETLIFY CONTACT FORM
-            ================================== -->
+            <!-- NETLIFY CONTACT FORM -->
 
             <div class="contact-form reveal">
 
-                <form name="contact"
-                      method="POST"
-                      data-netlify="true"
-                      data-netlify-honeypot="bot-field">
+                <form
+                    name="contact"
+                    id="contactForm"
+                    method="POST"
+                    action="/"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field">
 
                     <!-- REQUIRED BY NETLIFY -->
 
-                    <input type="hidden"
-                           name="form-name"
-                           value="contact">
+                    <input
+                        type="hidden"
+                        name="form-name"
+                        value="contact">
 
 
                     <!-- SPAM PROTECTION -->
@@ -2413,8 +1969,10 @@
                         <label>
                             Don't fill this out:
 
-                            <input name="bot-field">
-
+                            <input
+                                name="bot-field"
+                                tabindex="-1"
+                                autocomplete="off">
                         </label>
 
                     </p>
@@ -2499,11 +2057,20 @@
 
                     <button
                         type="submit"
-                        class="btn btn-orange">
+                        class="btn btn-orange"
+                        id="sendButton">
 
                         Send Message →
 
                     </button>
+
+
+                    <!-- STATUS MESSAGE -->
+
+                    <div
+                        id="form-status"
+                        role="alert">
+                    </div>
 
                 </form>
 
@@ -2514,9 +2081,7 @@
     </section>
 
 
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -2532,9 +2097,10 @@
 
     <!-- BACK TO TOP -->
 
-    <button id="topBtn"
-            type="button"
-            aria-label="Back to top">
+    <button
+        id="topBtn"
+        type="button"
+        aria-label="Back to top">
 
         ↑
 
@@ -2659,8 +2225,7 @@
 
             if (
                 !deleting &&
-                letterIndex >
-                currentWord.length
+                letterIndex > currentWord.length
             ) {
 
                 deleting = true;
@@ -2678,8 +2243,8 @@
                 letterIndex = 0;
 
                 wordIndex =
-                    (wordIndex + 1)
-                    % words.length;
+                    (wordIndex + 1) %
+                    words.length;
 
                 speed = 400;
 
@@ -2811,10 +2376,7 @@
         ===================================== */
 
         const sections =
-            document.querySelectorAll(
-                "section"
-            );
-
+            document.querySelectorAll("section");
 
         const navItems =
             document.querySelectorAll(
@@ -2828,13 +2390,11 @@
 
                 let current = "";
 
-
                 sections.forEach(
                     function (section) {
 
                         const sectionTop =
                             section.offsetTop;
-
 
                         if (
                             window.scrollY >=
@@ -2859,11 +2419,8 @@
                             "active"
                         );
 
-
                         if (
-                            link.getAttribute(
-                                "href"
-                            ) ===
+                            link.getAttribute("href") ===
                             "#" + current
                         ) {
 
@@ -2879,8 +2436,137 @@
             }
         );
 
+
+        /* =====================================
+           NETLIFY CONTACT FORM
+           FIX FOR 404 ERROR
+        ===================================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const formStatus =
+            document.getElementById("form-status");
+
+        const sendButton =
+            document.getElementById("sendButton");
+
+
+        contactForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                /*
+                 * IMPORTANT:
+                 * Stop the browser from doing a normal
+                 * POST navigation.
+                 *
+                 * This prevents the 404 page.
+                 */
+
+                event.preventDefault();
+
+
+                formStatus.className = "";
+                formStatus.style.display = "none";
+
+
+                sendButton.disabled = true;
+
+                sendButton.textContent =
+                    "Sending...";
+
+
+                try {
+
+                    const formData =
+                        new FormData(contactForm);
+
+
+                    /*
+                     * Netlify receives the form
+                     * through a POST request.
+                     */
+
+                    const response =
+                        await fetch(
+                            "/",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/x-www-form-urlencoded"
+                                },
+
+                                body:
+                                    new URLSearchParams(
+                                        formData
+                                    ).toString()
+                            }
+                        );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Form submission failed"
+                        );
+
+                    }
+
+
+                    /*
+                     * SUCCESS
+                     */
+
+                    formStatus.textContent =
+                        "✓ Message sent successfully! Thank you for contacting me.";
+
+                    formStatus.className =
+                        "success";
+
+                    formStatus.style.display =
+                        "block";
+
+
+                    contactForm.reset();
+
+
+                } catch (error) {
+
+                    /*
+                     * ERROR
+                     */
+
+                    formStatus.textContent =
+                        "✕ Unable to send the message right now. Please try again.";
+
+                    formStatus.className =
+                        "error";
+
+                    formStatus.style.display =
+                        "block";
+
+                    console.error(
+                        "Netlify form error:",
+                        error
+                    );
+
+                }
+
+
+                sendButton.disabled = false;
+
+                sendButton.textContent =
+                    "Send Message →";
+
+            }
+        );
+
     </script>
 
 </body>
 
 </html>
+```
