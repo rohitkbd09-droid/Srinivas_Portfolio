@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Control | G Srinivas Portfolio</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #080808;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .box {
+            width: 100%;
+            max-width: 520px;
+            padding: 35px;
+            background: #121212;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+        }
+        h1 { margin: 0 0 8px; }
+        h1 span { color: #ff6a00; }
+        p { color: #888; line-height: 1.7; }
+        label {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin: 22px 0 8px;
+        }
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #292929;
+            border-radius: 6px;
+            background: #0b0b0b;
+            color: #fff;
+            outline: none;
+        }
+        input:focus { border-color: #ff6a00; }
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 13px;
+            border: 1px solid #ff6a00;
+            border-radius: 6px;
+            background: #ff6a00;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        button:hover { background: #ff8500; }
+        .status {
+            margin-top: 22px;
+            padding: 15px;
+            border-radius: 7px;
+            background: #0b0b0b;
+            border: 1px solid #292929;
+        }
+        .visible { color: #6cffaa; }
+        .hidden { color: #ff8585; }
+        .message { min-height: 20px; font-size: 13px; }
+        .logout {
+            background: transparent;
+            color: #aaa;
+            border-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Owner <span>Control</span></h1>
+    <p>
+        This page controls whether the Certificates section is visible
+        to portfolio visitors.
+    </p>
+
+    <div id="loginArea">
+        <label for="password">Owner Password</label>
+        <input id="password" type="password" autocomplete="current-password"
+               placeholder="Enter owner password">
+        <button id="loginBtn" type="button">Open Owner Control</button>
+        <p id="loginMessage" class="message"></p>
+    </div>
+
+    <div id="controlArea" style="display:none;">
+        <div class="status">
+            Current status:
+            <strong id="statusText"></strong>
+        </div>
+
+        <button id="toggleBtn" type="button"></button>
+        <button id="logoutBtn" type="button" class="logout">Lock Owner Control</button>
+        <p id="controlMessage" class="message"></p>
+    </div>
+</div>
+
+<script>
+    let ownerPassword = "";
+    let currentVisible = true;
+
+    const loginArea = document.getElementById("loginArea");
+    const controlArea = document.getElementById("controlArea");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginMessage = document.getElementById("loginMessage");
+    const statusText = document.getElementById("statusText");
+    const toggleBtn = document.getElementById("toggleBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const controlMessage = document.getElementById("controlMessage");
+
+    async function readStatus() {
+        const response = await fetch(
+            "/.netlify/functions/certificate-control",
+            {
+                method: "GET",
+                headers: { "Accept": "application/json" },
+                cache: "no-store"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to read certificate status.");
+        }
+
+        return await response.json();
+    }
+
+    function renderStatus() {
+        statusText.textContent =
+            currentVisible ? " VISIBLE to visitors" : " HIDDEN from visitors";
+
+        statusText.className =
+            currentVisible ? "visible" : "hidden";
+
+        toggleBtn.textContent =
+            currentVisible
+                ? "Hide Certificates from Visitors"
+                : "Show Certificates to Visitors";
+    }
+
+    async function openControl() {
+
+        loginMessage.textContent = "";
+
+        const password = passwordInput.value.trim();
+
+        if (!password) {
+            loginMessage.textContent = "Enter your owner password.";
+            return;
+        }
+
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Checking...";
+
+        try {
+            const state = await readStatus();
+
+            ownerPassword = password;
+            currentVisible = state.visible === true;
+
+            loginArea.style.display = "none";
+            controlArea.style.display = "block";
+            renderStatus();
+
+        } catch (error) {
+
+            loginMessage.textContent =
+                "Unable to connect to the owner-control service.";
+
+        }
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = "Open Owner Control";
+    }
+
+    async function toggleCertificates() {
+
+        controlMessage.textContent = "";
+        toggleBtn.disabled = true;
+        toggleBtn.textContent = "Saving...";
+
+        try {
+
+            const response = await fetch(
+                "/.netlify/functions/certificate-control",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        password: ownerPassword,
+                        visible: !currentVisible
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Update failed.");
+            }
+
+            currentVisible = data.visible === true;
+            renderStatus();
+
+            controlMessage.textContent =
+                currentVisible
+                    ? "Certificates are now visible to visitors."
+                    : "Certificates are now hidden from visitors.";
+
+        } catch (error) {
+
+            controlMessage.textContent =
+                error.message || "Unable to update certificate visibility.";
+
+            renderStatus();
+
+        }
+
+        toggleBtn.disabled = false;
+    }
+
+    function logout() {
+        ownerPassword = "";
+        passwordInput.value = "";
+        controlArea.style.display = "none";
+        loginArea.style.display = "block";
+        loginMessage.textContent = "";
+        controlMessage.textContent = "";
+    }
+
+    loginBtn.addEventListener("click", openControl);
+
+    passwordInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") openControl();
+    });
+
+    toggleBtn.addEventListener("click", toggleCertificates);
+    logoutBtn.addEventListener("click", logout);
+</script>
+
+</body>
+</html>
