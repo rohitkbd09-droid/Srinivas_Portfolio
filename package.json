@@ -1,0 +1,8 @@
+{
+  "name": "srinivas-portfolio",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "latest"
+  }
+}
