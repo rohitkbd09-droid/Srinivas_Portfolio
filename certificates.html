@@ -25,6 +25,7 @@ body{font-family:'Poppins',sans-serif;background:#080808;color:white;min-height:
 .certificate-card p{color:#777;font-size:12px;line-height:1.8;margin-bottom:18px}
 .certificate-view{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:var(--orange);color:#fff;border:1px solid var(--orange);border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;transition:.3s}
 .certificate-view:hover{background:transparent;color:var(--orange);transform:translateY(-3px)}
+.certificate-card.hidden{display:none}
 .sports-certificate-photo{width:100%;max-height:420px;object-fit:contain;display:block;margin:20px 0;border:1px solid #252525;border-radius:8px;background:#0b0b0b;transition:.3s}
 .sports-certificate-photo:hover{transform:scale(1.02);border-color:rgba(255,106,0,.4);box-shadow:0 15px 35px rgba(0,0,0,.35)}
 @media(max-width:700px){.certificates-grid{grid-template-columns:1fr}.section-title h1{font-size:30px}}
@@ -33,12 +34,48 @@ body{font-family:'Poppins',sans-serif;background:#080808;color:white;min-height:
 <body>
 <div class="container">
 <a href="index.html" class="back">← Back to Portfolio</a>
-<div class="section-title"><small>CERTIFICATES</small><h1>My <span>Certificates</span></h1><p>Educational and sports certificates.</p></div>
+<div class="section-title"><small>CERTIFICATES</small><h1>My <span>Certificates</span></h1><p>SSC, diploma, B.Tech, sports, and internship records.</p></div>
 <div class="certificates-grid">
-<div class="certificate-card"><div class="certificate-icon">🎓</div><h3>10th / SSC Certificate</h3><p>Secondary School Certificate.</p><a href="certificates/10th-certificate.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
-<div class="certificate-card"><div class="certificate-icon">🎓</div><h3>Diploma Certificate</h3><p>Diploma education certificate.</p><a href="certificates/diploma-certificate.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
-<div class="certificate-card"><div class="certificate-icon">💻</div><h3>B.Tech Certificate</h3><p>Bachelor of Technology certificate.</p><a href="certificates/btech-certificate.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
-<div class="certificate-card"><div class="certificate-icon">🏆</div><h3>Sports Certificate</h3><p>Sports participation and achievement certificate.</p><a href="certificates/sportscertificate1.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate1.jpeg" alt="Sports Certificate" class="sports-certificate-photo"></a><a href="certificates/sportscertificate1.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
-</div></div>
+<div class="certificate-card" id="ssc" data-category="ssc"><h3>SSC Memo</h3><p>Secondary School Certificate memo.</p><a href="certificates/10th-certificate.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Memo →</a></div>
+<div class="certificate-card" id="diploma" data-category="diploma"><h3>Diploma Memo</h3><p>Diploma education memo.</p><a href="certificates/diploma-certificate.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Memo →</a></div>
+<div class="certificate-card" id="btech" data-category="btech"><h3>B.Tech Memo</h3><p>Bachelor of Technology academic memo.</p><a href="certificates/btech-certificate.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Memo →</a></div>
+<div class="certificate-card" id="internships" data-category="internships"><h3>Internship Certificate 1</h3><p>Internship participation record.</p><a href="certificates/internship-certificate-1.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="internships"><h3>Internship Certificate 2</h3><p>Additional internship participation record.</p><a href="certificates/internship-certificate-2.pdf" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" id="sports" data-category="sports"><h3>Sports Certificate 1</h3><a href="certificates/sportscertificate1.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate1.jpeg" alt="Sports Certificate 1" class="sports-certificate-photo"></a><a href="certificates/sportscertificate1.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="sports"><h3>Sports Certificate 2</h3><a href="certificates/sportscertificate2.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate2.jpeg" alt="Sports Certificate 2" class="sports-certificate-photo"></a><a href="certificates/sportscertificate2.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="sports"><h3>Sports Certificate 3</h3><a href="certificates/sportscertificate3.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate3.jpeg" alt="Sports Certificate 3" class="sports-certificate-photo"></a><a href="certificates/sportscertificate3.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="sports"><h3>Sports Certificate 4</h3><a href="certificates/sportscertificate4.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate4.jpeg" alt="Sports Certificate 4" class="sports-certificate-photo"></a><a href="certificates/sportscertificate4.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="sports"><h3>Sports Certificate 5</h3><a href="certificates/sportscertificate5.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate5.jpeg" alt="Sports Certificate 5" class="sports-certificate-photo"></a><a href="certificates/sportscertificate5.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="sports"><h3>Sports Certificate 6</h3><a href="certificates/sportscertificate6.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate6.jpeg" alt="Sports Certificate 6" class="sports-certificate-photo"></a><a href="certificates/sportscertificate6.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+<div class="certificate-card" data-category="sports"><h3>Sports Certificate 7</h3><a href="certificates/sportscertificate7.jpeg" target="_blank" rel="noopener noreferrer"><img src="certificates/sportscertificate7.jpeg" alt="Sports Certificate 7" class="sports-certificate-photo"></a><a href="certificates/sportscertificate7.jpeg" target="_blank" rel="noopener noreferrer" class="certificate-view">View Certificate →</a></div>
+</div>
+<script>
+  const validCategories = ['ssc', 'diploma', 'btech', 'sports', 'internships'];
+  function filterCertificates() {
+    const selected = (location.hash || '').replace('#', '').trim().toLowerCase();
+    const cards = document.querySelectorAll('.certificate-card');
+
+    if (!selected || !validCategories.includes(selected)) {
+      cards.forEach(card => card.classList.remove('hidden'));
+      return;
+    }
+
+    cards.forEach(card => {
+      const belongsToCategory = card.dataset.category === selected;
+      card.classList.toggle('hidden', !belongsToCategory);
+    });
+
+    const selectedCard = document.getElementById(selected);
+    if (selectedCard) {
+      selectedCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  window.addEventListener('hashchange', filterCertificates);
+  window.addEventListener('load', filterCertificates);
+</script>
+</div>
+</body>
+</html>
 </body>
 </html>

@@ -64,6 +64,35 @@
             background: #0b0b0b;
             border: 1px solid #292929;
         }
+        .toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+        }
+        .toggle-indicator {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 28px;
+            border-radius: 999px;
+            background: #3a3a3a;
+            border: 1px solid #505050;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .toggle-btn.on {
+            background: #0f8b42;
+            border-color: #2ed77a;
+        }
+        .toggle-btn.off {
+            background: #8c1d1d;
+            border-color: #ff6666;
+        }
         .visible { color: #6cffaa; }
         .hidden { color: #ff8585; }
         .message { min-height: 20px; font-size: 13px; }
@@ -97,7 +126,10 @@
             <strong id="statusText"></strong>
         </div>
 
-        <button id="toggleBtn" type="button"></button>
+        <button id="toggleBtn" type="button" class="toggle-btn">
+            <span class="toggle-indicator" id="toggleIndicator">OFF</span>
+            <span id="toggleLabel">Turn Certificates ON</span>
+        </button>
         <button id="logoutBtn" type="button" class="logout">Lock Owner Control</button>
         <p id="controlMessage" class="message"></p>
     </div>
@@ -141,10 +173,17 @@
         statusText.className =
             currentVisible ? "visible" : "hidden";
 
-        toggleBtn.textContent =
-            currentVisible
-                ? "Hide Certificates from Visitors"
-                : "Show Certificates to Visitors";
+        const isOn = currentVisible;
+        toggleBtn.classList.toggle("on", isOn);
+        toggleBtn.classList.toggle("off", !isOn);
+
+        const indicator = document.getElementById("toggleIndicator");
+        const label = document.getElementById("toggleLabel");
+
+        indicator.textContent = isOn ? "ON" : "OFF";
+        label.textContent = isOn
+            ? "Turn Certificates OFF"
+            : "Turn Certificates ON";
     }
 
     async function openControl() {
@@ -186,7 +225,9 @@
 
         controlMessage.textContent = "";
         toggleBtn.disabled = true;
-        toggleBtn.textContent = "Saving...";
+
+        const label = document.getElementById("toggleLabel");
+        label.textContent = "Saving...";
 
         try {
 
@@ -229,6 +270,7 @@
         }
 
         toggleBtn.disabled = false;
+        renderStatus();
     }
 
     function logout() {

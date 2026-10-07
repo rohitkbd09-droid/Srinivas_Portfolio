@@ -166,6 +166,75 @@
             width: 100%;
         }
 
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-button {
+            background: transparent;
+            border: none;
+            color: #999;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-dropdown-button:hover,
+        .nav-dropdown-button.active {
+            color: var(--orange);
+        }
+
+        .nav-dropdown-button::after {
+            content: "▾";
+            font-size: 12px;
+            color: var(--orange);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            min-width: 180px;
+            padding: 10px 0;
+            background: rgba(18, 18, 18, 0.98);
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.25s ease;
+            z-index: 12;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            color: #d5d5d5;
+            font-size: 13px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: 0.25s ease;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: rgba(255, 106, 0, 0.08);
+            color: var(--orange);
+        }
+
         .hire-btn {
             padding: 12px 27px;
             background: var(--orange);
@@ -1322,7 +1391,20 @@
             <li><a href="#about">About Me</a></li>
             <li><a href="#projects">Portfolio</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="certificates.html">Certificates</a></li>
+
+            <li class="nav-dropdown">
+                <button class="nav-dropdown-button" type="button" aria-expanded="false">
+                    Certificates
+                </button>
+                <div class="nav-dropdown-menu">
+                    <a href="certificates.html#ssc">SSC</a>
+                    <a href="certificates.html#diploma">Diploma</a>
+                    <a href="certificates.html#btech">B.Tech</a>
+                    <a href="certificates.html#sports">Sports</a>
+                    <a href="certificates.html#internships">Internships</a>
+                </div>
+            </li>
+
             <li><a href="#contact">Contact</a></li>
 
             <li>
@@ -1931,37 +2013,37 @@
 
             <div class="certificate-card reveal">
                 <div class="certificate-icon">🎓</div>
-                <h3>10th / SSC Certificate</h3>
-                <p>Secondary School Certificate.</p>
+                <h3>SSC Memo</h3>
+                <p>Secondary School Certificate memo.</p>
                 <a href="certificates/10th-certificate.pdf"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="certificate-view">
-                    View Certificate →
+                    View Memo →
                 </a>
             </div>
 
             <div class="certificate-card reveal">
                 <div class="certificate-icon">🎓</div>
-                <h3>Diploma Certificate</h3>
-                <p>Diploma education certificate.</p>
+                <h3>Diploma Memo</h3>
+                <p>Diploma education memo and completion record.</p>
                 <a href="certificates/diploma-certificate.pdf"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="certificate-view">
-                    View Certificate →
+                    View Memo →
                 </a>
             </div>
 
             <div class="certificate-card reveal">
                 <div class="certificate-icon">💻</div>
-                <h3>B.Tech Certificate</h3>
-                <p>Bachelor of Technology certificate.</p>
+                <h3>B.Tech Memo</h3>
+                <p>Bachelor of Technology academic memo.</p>
                 <a href="certificates/btech-certificate.pdf"
                    target="_blank"
                    rel="noopener noreferrer"
                    class="certificate-view">
-                    View Certificate →
+                    View Memo →
                 </a>
             </div>
 
@@ -1981,6 +2063,25 @@
                    class="certificate-view"
                    style="margin-left:8px;">
                     View Certificate 2 →
+                </a>
+            </div>
+
+            <div class="certificate-card reveal">
+                <div class="certificate-icon">🔬</div>
+                <h3>Internship Certificates</h3>
+                <p>Industrial and internship participation records.</p>
+                <a href="certificates/internship-certificate-1.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-view">
+                    View Internship 1 →
+                </a>
+                <a href="certificates/internship-certificate-2.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="certificate-view"
+                   style="margin-left:8px;">
+                    View Internship 2 →
                 </a>
             </div>
 
@@ -2277,6 +2378,12 @@
         const navLinks =
             document.getElementById("navLinks");
 
+        const certificateDropdown =
+            document.querySelector(".nav-dropdown");
+
+        const certificateDropdownButton =
+            document.querySelector(".nav-dropdown-button");
+
         menuBtn.addEventListener(
             "click",
             function () {
@@ -2286,9 +2393,36 @@
             }
         );
 
+        if (certificateDropdownButton) {
+            certificateDropdownButton.addEventListener(
+                "click",
+                function () {
+
+                    if (!certificateDropdown) return;
+
+                    const isOpen = certificateDropdown.classList.toggle("open");
+                    certificateDropdownButton.setAttribute("aria-expanded", String(isOpen));
+
+                }
+            );
+        }
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (!certificateDropdown) return;
+
+                if (!certificateDropdown.contains(event.target)) {
+                    certificateDropdown.classList.remove("open");
+                    certificateDropdownButton.setAttribute("aria-expanded", "false");
+                }
+
+            }
+        );
 
         document
-            .querySelectorAll(".nav-links a")
+            .querySelectorAll(".nav-links a, .nav-dropdown-menu a")
             .forEach(function (link) {
 
                 link.addEventListener(
@@ -2296,6 +2430,12 @@
                     function () {
 
                         navLinks.classList.remove("open");
+                        if (certificateDropdown) {
+                            certificateDropdown.classList.remove("open");
+                            if (certificateDropdownButton) {
+                                certificateDropdownButton.setAttribute("aria-expanded", "false");
+                            }
+                        }
 
                     }
                 );
