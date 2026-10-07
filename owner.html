@@ -213,7 +213,7 @@
         } catch (error) {
 
             loginMessage.textContent =
-                "Unable to connect to the owner-control service.";
+                "Unable to connect to the owner-control service. Open the site through Netlify or run 'npx netlify dev', and set OWNER_PASSWORD in Netlify.";
 
         }
 
@@ -263,7 +263,8 @@
         } catch (error) {
 
             controlMessage.textContent =
-                error.message || "Unable to update certificate visibility.";
+                (error.message || "Unable to update certificate visibility.") +
+                " Please make sure the site is running through Netlify and the OWNER_PASSWORD is configured.";
 
             renderStatus();
 
