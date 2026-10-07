@@ -2868,6 +2868,19 @@
             if (!certificateSection) return;
 
             try {
+                const saved = localStorage.getItem("certificate-visibility");
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed.visible === false) {
+                        certificateSection.style.display = "none";
+                        return;
+                    }
+                }
+            } catch (error) {
+                // Ignore localStorage parse issues.
+            }
+
+            try {
 
                 const response =
                     await fetch("/.netlify/functions/certificate-control", {
@@ -2879,7 +2892,15 @@
                     });
 
                 if (!response.ok) {
-                    certificateSection.style.display = "none";
+                    const localSetting = localStorage.getItem("certificate-visibility");
+                    if (localSetting) {
+                        const parsed = JSON.parse(localSetting);
+                        if (parsed.visible === false) {
+                            certificateSection.style.display = "none";
+                            return;
+                        }
+                    }
+                    certificateSection.style.display = "block";
                     return;
                 }
 
@@ -2887,15 +2908,22 @@
 
                 if (data.visible !== true) {
                     certificateSection.style.display = "none";
+                } else {
+                    certificateSection.style.display = "block";
                 }
 
             } catch (error) {
 
-                /*
-                 * Fail closed: if the owner-control service
-                 * cannot be reached, certificates remain hidden.
-                 */
-                certificateSection.style.display = "none";
+                const localSetting = localStorage.getItem("certificate-visibility");
+                if (localSetting) {
+                    const parsed = JSON.parse(localSetting);
+                    if (parsed.visible === false) {
+                        certificateSection.style.display = "none";
+                        return;
+                    }
+                }
+
+                certificateSection.style.display = "block";
 
                 console.error(
                     "Certificate visibility check failed:",

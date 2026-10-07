@@ -149,21 +149,47 @@
     const logoutBtn = document.getElementById("logoutBtn");
     const controlMessage = document.getElementById("controlMessage");
 
-    async function readStatus() {
-        const response = await fetch(
-            "/.netlify/functions/certificate-control",
-            {
-                method: "GET",
-                headers: { "Accept": "application/json" },
-                cache: "no-store"
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error("Unable to read certificate status.");
+    function readLocalVisibility() {
+        try {
+            const raw = localStorage.getItem("certificate-visibility");
+            if (!raw) return { visible: true };
+            const parsed = JSON.parse(raw);
+            return { visible: parsed.visible !== false };
+        } catch (error) {
+            return { visible: true };
         }
+    }
 
-        return await response.json();
+    function saveLocalVisibility(visible) {
+        try {
+            localStorage.setItem(
+                "certificate-visibility",
+                JSON.stringify({ visible })
+            );
+        } catch (error) {
+            // Ignore localStorage write failures.
+        }
+    }
+
+    async function readStatus() {
+        try {
+            const response = await fetch(
+                "/.netlify/functions/certificate-control",
+                {
+                    method: "GET",
+                    headers: { "Accept": "application/json" },
+                    cache: "no-store"
+                }
+            );
+
+            if (!response.ok) {
+                return readLocalVisibility();
+            }
+
+            return await response.json();
+        } catch (error) {
+            return readLocalVisibility();
+        }
     }
 
     function renderStatus() {
@@ -205,6 +231,7 @@
 
             ownerPassword = password;
             currentVisible = state.visible === true;
+            saveLocalVisibility(currentVisible);
 
             loginArea.style.display = "none";
             controlArea.style.display = "block";
@@ -253,6 +280,7 @@
             }
 
             currentVisible = data.visible === true;
+            saveLocalVisibility(currentVisible);
             renderStatus();
 
             controlMessage.textContent =
@@ -262,11 +290,14 @@
 
         } catch (error) {
 
+            const hidden = !currentVisible;
+            currentVisible = hidden;
+            saveLocalVisibility(currentVisible);
+            renderStatus();
+
             controlMessage.textContent =
                 (error.message || "Unable to update certificate visibility.") +
-                " Please make sure the site is running through Netlify and the OWNER_PASSWORD is configured.";
-
-            renderStatus();
+                " The local owner setting was saved, but the Netlify function still needs OWNER_PASSWORD configured for live syncing.";
 
         }
 
